@@ -64,7 +64,7 @@ set title "Frequency of \"${OCCURENCE_TO_FIND}\"\nsince $start_string to $stop_s
 set output '$plotfile-frequency.png'
 
 set xlabel  "Date/Time"
-set ylabel  "Number of Accesses"
+set ylabel  "Number of accesses per minutes"
 set y2label "Average time(ms)
 
 set xtics rotate by -45 font ",8"
@@ -83,8 +83,8 @@ set yrange [0:]
 
 set boxwidth 0.80 relative
 set style fill transparent solid 0.5 
-plot "-" using (\$1 + $TIMEZONEGAP):2 title 'Number of Accesses' with boxes lc rgb 'green',  \
-     "-" using (\$1 + $TIMEZONEGAP):3 title 'Response Time Average'  with lines axes x1y2 lc rgb 'red'
+plot "-" using (\$1 + $TIMEZONEGAP):2 title 'Number of accesses per minutes' with boxes lc rgb 'green',  \
+     "-" using (\$1 + $TIMEZONEGAP):3 title 'Response Time Average(ms)'  with lines axes x1y2 lc rgb 'red'
 EOI
 
 # Compute time spent in requests per minutes
